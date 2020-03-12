@@ -1,0 +1,9 @@
+{
+    "C_Cpp.errorSquiggles": "Enabled",
+    "files.associations": {
+        "stdio.h": "c",
+        "stdlib.h": "c",
+        "jpglib.h": "c",
+        "jpgdecoder.h": "c"
+    }
+}
