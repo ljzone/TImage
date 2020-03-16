@@ -13,9 +13,9 @@ void process_SOI()
     printf("SOI\n");
 }
 
-void process_APP0()
+void process_APP(BYTE b)
 {
-    printf("APP0\n");
+    printf("APP: \n%X \n", b.value);
 }
 
 void process_DQT()
@@ -33,9 +33,12 @@ void process_DHT()
     printf("DHT\n");
 }
 
-void process_SOF()
+void process_SOF(BYTE b, FILE *fin)
 {
-    printf("SOF\n");
+	switch(b.value)
+	{
+		case JPEG_SOF0: read_SOF0(fin); break;
+	}
 }
 
 void process_SOS()
@@ -47,4 +50,31 @@ void process_EOI()
 {
     printf("EOI\n");
 }
+
+
+void read_SOF0(FILE *fin)
+{
+	printf("SOF0\n");
+	WORD wd;
+	BYTE b;
+
+	read_word(&wd, fin);
+	printf("%d ", ((wd.W.h<<8) + wd.W.l));
+
+	read_byte(&b, fin);
+	printf("%d ", b.value);
+
+	read_word(&wd, fin);
+	printf("%d ", ((wd.W.h<<8) + wd.W.l));
+
+	read_word(&wd, fin);
+	printf("%d ", ((wd.W.h<<8) + wd.W.l));
+
+	read_byte(&b, fin);
+	printf("%d ", b.value);
+
+
+	printf("\n");
+}
+
 

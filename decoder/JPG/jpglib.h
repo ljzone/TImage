@@ -18,6 +18,22 @@
 #define JPEG_EOI 0xD9
 
 #define JPEG_APP0 0xE0
+#define JPEG_APP1 0xE1
+#define JPEG_APP2 0xE2
+#define JPEG_APP3 0xE3
+#define JPEG_APP4 0xE4
+#define JPEG_APP5 0xE5
+#define JPEG_APP6 0xE6
+#define JPEG_APP7 0xE7
+#define JPEG_APP8 0xE8
+#define JPEG_APP9 0xE9
+#define JPEG_APPA 0xEA
+#define JPEG_APPB 0xEB
+#define JPEG_APPC 0xEC
+#define JPEG_APPD 0xED
+#define JPEG_APPE 0xEE
+#define JPEG_APPF 0xEF
+
 #define JPEG_DQT  0xDB
 #define JPEG_DRI  0xDD
 #define JPEG_DHT  0xC4
@@ -72,11 +88,12 @@ typedef Byte BYTE;
 void process_SOI();
 void process_EOI();
 
-void process_APP0();
+void process_APP(BYTE b);
 void process_DQT();
 void process_DRI();
 void process_DHT();
-void process_SOF();
+void process_SOF(BYTE b, FILE *fin);
 void process_SOS();
 
+void read_SOF0(FILE *fin);
 #endif // jpglib.h
