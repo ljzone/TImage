@@ -79,21 +79,11 @@ typedef union
 
 typedef Byte BYTE;
 
+WORD wd;
+BYTE b;
 
 #define read_byte(wd,file) fread(wd, BYTESIZE, 1, (file))
 #define read_word(wd,file) fread(wd, WORDSIZE, 1, (file))
 
 
-
-void process_SOI();
-void process_EOI();
-
-void process_APP(BYTE b);
-void process_DQT();
-void process_DRI();
-void process_DHT();
-void process_SOF(BYTE b, FILE *fin);
-void process_SOS();
-
-void read_SOF0(FILE *fin);
 #endif // jpglib.h
