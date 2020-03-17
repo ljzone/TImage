@@ -1,8 +1,10 @@
+test
 *.jpg
 *.jpeg
 test.c
 .vscode*
 *.swp
+
 
 # Prerequisites
 *.d
